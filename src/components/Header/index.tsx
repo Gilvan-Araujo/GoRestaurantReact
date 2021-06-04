@@ -1,6 +1,5 @@
 import { FiPlusSquare } from 'react-icons/fi';
 
-import Logo from '../../assets/logo.svg';
 import { Container } from './styles';
 
 type HeaderProps = {
@@ -11,7 +10,7 @@ export default function Header({ openModal }: HeaderProps) {
   return (
     <Container>
       <header>
-        <img src={Logo} alt="GoRestaurant" />
+        <img src='/logo.svg' alt="GoRestaurant" />
         <nav>
           <div>
             <button
