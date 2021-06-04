@@ -5,7 +5,7 @@ import Header from '../components/Header';
 import ModalAddFood from '../components/ModalAddFood';
 import ModalEditFood from '../components/ModalEditFood';
 import api from '../services/api';
-import { FoodsContainer } from './styles';
+import { FoodsContainer } from '../styles/styles';
 
 type IFood = {
   id: number,
