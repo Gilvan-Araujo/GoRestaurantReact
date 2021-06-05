@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import { FiEdit3, FiTrash } from 'react-icons/fi';
+import { HiPencil, HiTrash } from 'react-icons/hi';
+
+import { Button, Flex, Heading, Icon, Switch, Text } from '@chakra-ui/react';
 
 import api from '../../services/api';
 import { Container } from './styles';
@@ -36,56 +38,106 @@ export default function Food({ food, handleEditFood, handleDelete }: FoodProps) 
     handleEditFood(food);
   }
 
-
-
   return (
     <Container available={isAvailable}>
       <header>
         <img src={food.image} alt={food.name} />
       </header>
-      <section className="body">
-        <h2>{food.name}</h2>
-        <p>{food.description}</p>
-        <p className="price">
-          R$ <b>{food.price}</b>
-        </p>
-      </section>
-      <section className="footer">
-        <div className="icon-container">
-          <button
-            type="button"
-            className="icon"
+
+      <Flex
+        p={8}
+        color='gray.100'
+        flexDir='column'
+      >
+        <Heading
+          as='h2'
+        >
+          {food.name}
+        </Heading>
+        <Text
+          as='p'
+          mt={8}
+        >
+          {food.description}
+        </Text>
+        <Text
+          fontStyle='normal'
+          fontSize='24px'
+          lineHeight='34px'
+          color='green.500'
+          mt={8}
+        >
+          R$ {food.price}
+        </Text>
+      </Flex>
+
+      <Flex
+        as='section'
+        justify='space-between'
+        align='center'
+        py='20px'
+        px='30px'
+        bg='gray.700'
+        borderBottomRightRadius='8px'
+        borderBottomLeftRadius='8px'
+      >
+        <Flex
+          as='div'
+        >
+          <Button
+            bg='gray.600'
+            p='10px'
+            borderRadius='8px'
+            display='flex'
+            border='none'
+            transition='0.1s'
+            _hover={{ bg: 'gray.600' }}
             onClick={setEditingFood}
-            data-testid={`edit-food-${food.id}`}
           >
-            <FiEdit3 size={20} />
-          </button>
-
-          <button
-            type="button"
-            className="icon"
-            onClick={() => handleDelete(food.id)}
-            data-testid={`remove-food-${food.id}`}
-          >
-            <FiTrash size={20} />
-          </button>
-        </div>
-
-        <div className="availability-container">
-          <p>{isAvailable ? 'Disponível' : 'Indisponível'}</p>
-
-          <label htmlFor={`available-switch-${food.id}`} className="switch">
-            <input
-              id={`available-switch-${food.id}`}
-              type="checkbox"
-              checked={isAvailable}
-              onChange={toggleAvailable}
-              data-testid={`change-status-food-${food.id}`}
+            <Icon
+              as={HiPencil}
+              w={5}
+              h={5}
+              color='gray.100'
             />
-            <span className="slider" />
-          </label>
-        </div>
-      </section>
+          </Button>
+          <Button
+            bg='gray.600'
+            p='10px'
+            borderRadius='8px'
+            display='flex'
+            border='none'
+            transition='0.1s'
+            _hover={{ bg: 'gray.600' }}
+            onClick={() => handleDelete(food.id)}
+            ml='6px'
+          >
+            <Icon
+              as={HiTrash}
+              w={5}
+              h={5}
+              color='gray.100'
+            />
+          </Button>
+        </Flex>
+        <Flex
+          as='div'
+          align='center'
+        >
+          <Text
+            color='gray.100'
+          >
+            {isAvailable ? 'Available' : 'Unavailable '}
+          </Text>
+          <Switch
+            size='lg'
+            colorScheme='blue'
+            isChecked={isAvailable}
+            onChange={toggleAvailable}
+            ml='12px'
+          />
+        </Flex>
+      </Flex>
     </Container>
   );
 }
