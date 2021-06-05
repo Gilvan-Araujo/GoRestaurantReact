@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 
+import { Box } from '@chakra-ui/react';
+
 import Food from '../components/Food';
 import Header from '../components/Header';
 import ModalAddFood from '../components/ModalAddFood';
 import ModalEditFood from '../components/ModalEditFood';
 import api from '../services/api';
-import { FoodsContainer } from '../styles/styles';
 
 type IFood = {
   id: number,
@@ -104,7 +105,18 @@ export default function Home() {
         handleUpdateFood={handleUpdateFood}
       />
 
-      <FoodsContainer data-testid="foods-list">
+      <Box
+        w='full'
+        maxW='1280px'
+        mx='auto'
+        my={0}
+        px={0}
+        py={2.5}
+        mt='-140px'
+        display='grid'
+        gridTemplateColumns='repeat(3, 1fr)'
+        gridGap='32px'
+      >
         {foods &&
           foods.map(food => (
             <Food
@@ -114,7 +126,7 @@ export default function Home() {
               handleEditFood={handleEditFood}
             />
           ))}
-      </FoodsContainer>
+      </Box>
     </>
   );
 }
