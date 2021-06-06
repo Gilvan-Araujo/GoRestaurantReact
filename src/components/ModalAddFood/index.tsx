@@ -1,6 +1,8 @@
-import { FormHandles } from '@unform/core';
 import { useRef } from 'react';
-import { FiCheckSquare } from 'react-icons/fi';
+import { HiCheck } from 'react-icons/hi';
+
+import { Flex, Heading } from '@chakra-ui/layout';
+import { FormHandles } from '@unform/core';
 
 import Input from '../Input';
 import Modal from '../Modal';
@@ -30,19 +32,54 @@ export default function ModalAddFood({ isOpen, setIsOpen, handleAddFood }: Modal
   return (
     <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
       <Form ref={formRef} onSubmit={handleSubmit}>
-        <h1>Novo Prato</h1>
-        <Input name="image" placeholder="Cole o link aqui" />
+        <Heading
+          as="h1"
+          fontWeight={600}
+          fontSize='36px'
+          lineHeight='36px'
+          mb='40px'
+          color='gray.100'
+        >
+          New plate
+        </Heading>
+        <Input name="image" placeholder="Paste the link here" />
 
-        <Input name="name" placeholder="Ex: Moda Italiana" />
-        <Input name="price" placeholder="Ex: 19.90" />
+        <Input name="name" placeholder="E.g.: Italian style" />
+        <Input name="price" placeholder="E.g.: $19.90" />
 
-        <Input name="description" placeholder="Descrição" />
-        <button type="submit" data-testid="add-food-button">
-          <p className="text">Adicionar Prato</p>
-          <div className="icon">
-            <FiCheckSquare size={24} />
-          </div>
-        </button>
+        <Input name="description" placeholder="Description" />
+
+        <Flex
+          as='button'
+          type='submit'
+          fontWeight={600}
+          borderRadius='8px'
+          border={0}
+          bg='blue.500'
+          color='white'
+          display='flex'
+          flexDirection='row'
+          alignItems='center'
+          mt='48px'
+          alignSelf='flex-end'
+        >
+          <Flex
+            px={6}
+            py={4}
+          >
+            Add Plate
+            </Flex>
+          <Flex
+            p={4}
+            bg='blue.400'
+            borderTopRightRadius='8px'
+            borderBottomRightRadius='8px'
+            my={0}
+            mx='auto'
+          >
+            <HiCheck size={24} />
+          </Flex>
+        </Flex>
       </Form>
     </Modal>
   );

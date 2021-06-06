@@ -1,11 +1,12 @@
-import { useRef } from 'react';
-import { FiCheckSquare } from 'react-icons/fi';
+import React, { useRef } from 'react';
+import { HiCheck } from 'react-icons/hi';
 
 import { FormHandles } from '@unform/core';
 
 import Input from '../Input';
 import Modal from '../Modal';
 import { Form } from './styles';
+import { Flex, Heading } from '@chakra-ui/react';
 
 type AddFood = {
   image: string,
@@ -41,20 +42,55 @@ export default function ModalEditFood({ isOpen, setIsOpen, handleUpdateFood, edi
   return (
     <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
       <Form ref={formRef} onSubmit={handleSubmit} initialData={editingFood}>
-        <h1>Editar Prato</h1>
-        <Input name="image" placeholder="Cole o link aqui" />
+        <Heading
+          as="h1"
+          fontWeight={600}
+          fontSize='36px'
+          lineHeight='36px'
+          mb='40px'
+          color='gray.100'
+        >
+          New plate
+        </Heading>
+        <Input name="image" placeholder="Paste the link here" />
 
-        <Input name="name" placeholder="Ex: Moda Italiana" />
-        <Input name="price" placeholder="Ex: 19.90" />
+        <Input name="name" placeholder="E.g.: Italian style" />
+        <Input name="price" placeholder="E.g.: $19.90" />
 
-        <Input name="description" placeholder="Descrição" />
+        <Input name="description" placeholder="Description" />
 
-        <button type="submit" data-testid="edit-food-button">
-          <div className="text">Editar Prato</div>
-          <div className="icon">
-            <FiCheckSquare size={24} />
-          </div>
-        </button>
+        <Flex
+          as='button'
+          type='submit'
+          fontWeight={600}
+          borderRadius='8px'
+          border={0}
+          bg='blue.500'
+          color='white'
+          display='flex'
+          flexDirection='row'
+          alignItems='center'
+          mt='48px'
+          alignSelf='flex-end'
+        >
+          <Flex
+            px={6}
+            py={4}
+          >
+            Edit Plate
+          </Flex>
+          <Flex
+            p={4}
+            bg='blue.400'
+            borderTopRightRadius='8px'
+            borderBottomRightRadius='8px'
+            my={0}
+            mx='auto'
+          >
+            <HiCheck size={24} />
+          </Flex>
+        </Flex>
+
       </Form>
     </Modal>
   );
