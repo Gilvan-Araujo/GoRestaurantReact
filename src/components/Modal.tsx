@@ -28,7 +28,7 @@ export default function Modal({ isOpen, setIsOpen, children }: ModalProps) {
           bottom: 'auto',
           marginRight: '-50%',
           transform: 'translate(-50%, -50%)',
-          background: '#F0F0F5',
+          background: '#2D3748',
           color: '#000000',
           borderRadius: '8px',
           width: '736px',

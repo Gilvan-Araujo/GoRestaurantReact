@@ -29,8 +29,8 @@ export default function Input({ name, icon: Icon, ...rest }: InputProps) {
         align='center'
         bg='gray.900'
         borderRadius='8px'
-        px='18px'
-        py='24px'
+        px='24px'
+        py='18px'
         width='100%'
         fontSize='16px'
         mb='24px'
@@ -40,12 +40,13 @@ export default function Input({ name, icon: Icon, ...rest }: InputProps) {
 
         <ChakraInput
           display='flex'
+          size='xs'
+          fontSize='16px'
           flex={1}
           bg='transparent'
           border={0}
           color='gray.100'
           _placeholder={{ color: 'gray.100' }}
-          size='lg'
           defaultValue={defaultValue}
           ref={inputRef}
           {...rest}
