@@ -10,7 +10,6 @@ export default function Header({ openModal }: HeaderProps) {
   return (
     <>
       <Flex
-        bg='red.900'
         py={8}
         px={0}
       >
