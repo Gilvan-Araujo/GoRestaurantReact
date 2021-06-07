@@ -1,12 +1,17 @@
 import { HiPlusCircle } from 'react-icons/hi';
 
-import { Flex, Image } from '@chakra-ui/react';
+import { Flex, Image, useBreakpointValue } from '@chakra-ui/react';
 
 type HeaderProps = {
   openModal: () => void
 }
 
 export default function Header({ openModal }: HeaderProps) {
+  const isWideScreen = useBreakpointValue({
+    base: false,
+    lg: true,
+  })
+
   return (
     <>
       <Flex
@@ -24,7 +29,7 @@ export default function Header({ openModal }: HeaderProps) {
           align='center'
           justify='space-between'
         >
-          <Image src='/logo.svg' />
+          <Image src='/logo.svg' h={[12, 14]} />
 
           <Flex
             as='button'
@@ -38,17 +43,21 @@ export default function Header({ openModal }: HeaderProps) {
             flexDirection='row'
             alignItems='center'
           >
-            <Flex
-              px={6}
-              py={4}
-            >
-              New Plate
-            </Flex>
+            {isWideScreen && (
+              <Flex
+                px={6}
+                py={4}
+              >
+                New Plate
+              </Flex>
+            )}
             <Flex
               p={4}
               bg='blue.400'
-              borderTopRightRadius='8px'
-              borderBottomRightRadius='8px'
+              borderTopRightRadius={['8px']}
+              borderBottomRightRadius={['8px']}
+              borderTopLeftRadius={['8px', 0]}
+              borderBottomLeftRadius={['8px', 0]}
             >
               <HiPlusCircle size={24} />
             </Flex>

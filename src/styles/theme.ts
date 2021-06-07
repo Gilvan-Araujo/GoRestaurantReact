@@ -10,7 +10,8 @@ export const theme = extendTheme({
             body: {
                 bg: 'gray.900',
                 color: 'gray.50',
-                flexDirection: 'column'
+                flexDirection: 'column',
+                p:'20px'
             }
         }
     }

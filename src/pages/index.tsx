@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { Box } from '@chakra-ui/react';
+import { Box, SimpleGrid } from '@chakra-ui/react';
 
 import Food from '../components/Food';
 import Header from '../components/Header';
@@ -105,7 +105,7 @@ export default function Home() {
         handleUpdateFood={handleUpdateFood}
       />
 
-      <Box
+      <SimpleGrid
         w='full'
         maxW='1280px'
         mx='auto'
@@ -113,9 +113,8 @@ export default function Home() {
         px={0}
         py={2.5}
         mt='-140px'
-        display='grid'
-        gridTemplateColumns='repeat(3, 1fr)'
-        gridGap='32px'
+        minChildWidth='300px'
+        spacing='32px'
       >
         {foods &&
           foods.map(food => (
@@ -126,7 +125,7 @@ export default function Home() {
               handleEditFood={handleEditFood}
             />
           ))}
-      </Box>
+      </SimpleGrid>
     </>
   );
 }

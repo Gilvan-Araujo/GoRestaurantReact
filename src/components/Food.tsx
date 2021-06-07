@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { HiPencil, HiTrash } from 'react-icons/hi';
 
-import { Button, Flex, Heading, Icon, Switch, Text } from '@chakra-ui/react';
+import { Button, Flex, Heading, Icon, Image, Switch, Text } from '@chakra-ui/react';
 
-import api from '../../services/api';
-import { Container } from './styles';
+import api from '../services/api';
 
 type IFood = {
   id: number,
@@ -39,10 +38,30 @@ export default function Food({ food, handleEditFood, handleDelete }: FoodProps) 
   }
 
   return (
-    <Container available={isAvailable}>
-      <header>
-        <img src={food.image} alt={food.name} />
-      </header>
+    <Flex
+      flexDir='column'
+      bg='gray.800'
+      borderRadius='8px'
+    >
+      <Flex
+        as='header'
+        justify='center'
+        bg='#ffb84d'
+        borderTopLeftRadius='8px'
+        borderTopRightRadius='8px'
+        height='192px'
+        overflow='hidden'
+      >
+        <Image
+          src={food.image}
+          alt={food.name}
+          opacity={isAvailable ? '1' : '0.3'}
+          transition='0.25s opacity'
+          objectFit='cover'
+          pointerEvents='none'
+          userSelect='none'
+        />
+      </Flex>
 
       <Flex
         p={8}
@@ -138,7 +157,7 @@ export default function Food({ food, handleEditFood, handleDelete }: FoodProps) 
           />
         </Flex>
       </Flex>
-    </Container>
+    </Flex>
   );
 }
 
