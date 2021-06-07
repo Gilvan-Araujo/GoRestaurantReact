@@ -16,7 +16,7 @@ export default function Modal({ isOpen, setIsOpen, children }: ModalProps) {
 
   return (
     <ReactModal
-      shouldCloseOnOverlayClick={!false}
+      shouldCloseOnOverlayClick={true}
       onRequestClose={setIsOpen}
       isOpen={modalStatus}
       ariaHideApp={false}
@@ -31,7 +31,7 @@ export default function Modal({ isOpen, setIsOpen, children }: ModalProps) {
           background: '#2D3748',
           color: '#000000',
           borderRadius: '8px',
-          width: '736px',
+          width: 'auto',
           border: 'none',
         },
         overlay: {

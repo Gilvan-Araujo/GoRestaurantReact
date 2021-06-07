@@ -1,12 +1,12 @@
 import React, { useRef } from 'react';
 import { HiCheck } from 'react-icons/hi';
 
+import { Flex, Heading } from '@chakra-ui/react';
 import { FormHandles } from '@unform/core';
 
-import Input from '../Input';
-import Modal from '../Modal';
-import { Form } from './styles';
-import { Flex, Heading } from '@chakra-ui/react';
+import Input from './Input';
+import Modal from './Modal';
+import { Form } from './ModalStyle';
 
 type AddFood = {
   image: string,
