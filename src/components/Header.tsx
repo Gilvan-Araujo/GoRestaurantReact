@@ -29,10 +29,11 @@ export default function Header({ openModal }: HeaderProps) {
           align='center'
           justify='space-between'
         >
-          <Image src='/logo.svg' h={[12, 14]} />
+          <Image src='/logo.svg' h={[12, 14]} alt='A fork and a knife crossing each other' />
 
           <Flex
             as='button'
+            aria-label='Add food'
             onClick={openModal}
             fontWeight={600}
             borderRadius='8px'
@@ -48,7 +49,7 @@ export default function Header({ openModal }: HeaderProps) {
                 px={6}
                 py={4}
               >
-                New Plate
+                New Dish
               </Flex>
             )}
             <Flex
@@ -56,8 +57,8 @@ export default function Header({ openModal }: HeaderProps) {
               bg='blue.400'
               borderTopRightRadius={['8px']}
               borderBottomRightRadius={['8px']}
-              borderTopLeftRadius={['8px', 0]}
-              borderBottomLeftRadius={['8px', 0]}
+              borderTopLeftRadius={['8px', '8px', '8px', 0]}
+              borderBottomLeftRadius={['8px', '8px', '8px', 0]}
             >
               <HiPlusCircle size={24} />
             </Flex>

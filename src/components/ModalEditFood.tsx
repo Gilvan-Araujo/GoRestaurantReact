@@ -77,7 +77,7 @@ export default function ModalEditFood({ isOpen, setIsOpen, handleUpdateFood, edi
             px={6}
             py={4}
           >
-            Edit Plate
+            Edit dish
           </Flex>
           <Flex
             p={4}

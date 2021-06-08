@@ -40,7 +40,7 @@ export default function ModalAddFood({ isOpen, setIsOpen, handleAddFood }: Modal
           mb='40px'
           color='gray.100'
         >
-          New plate
+          New dish
         </Heading>
         <Input name="image" placeholder="Paste the link here" />
 
