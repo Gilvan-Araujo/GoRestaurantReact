@@ -1,0 +1,16 @@
+{
+    "name": "GoodFood - The greatest cuisine",
+    "short_name": "GoodFood",
+    "theme_color": "#171923",
+    "background_color": "#171923",
+    "display": "fullscreen",
+    "orientation": "portrait",
+    "scope": "/",
+    "start_url": "/",
+    "icons": [
+        {
+            "src": "google-touch-icon.png",
+            "sizes": "512x512"
+        }
+    ]
+}
