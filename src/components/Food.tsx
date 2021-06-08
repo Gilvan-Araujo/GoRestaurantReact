@@ -104,6 +104,7 @@ export default function Food({ food, handleEditFood, handleDelete }: FoodProps) 
           as='div'
         >
           <Button
+            aria-label='Edit dish'
             bg='gray.600'
             p='10px'
             borderRadius='8px'
@@ -121,6 +122,7 @@ export default function Food({ food, handleEditFood, handleDelete }: FoodProps) 
             />
           </Button>
           <Button
+            aria-label='Delete dish'
             bg='gray.600'
             p='10px'
             borderRadius='8px'
@@ -149,6 +151,7 @@ export default function Food({ food, handleEditFood, handleDelete }: FoodProps) 
             {isAvailable ? 'Available' : 'Unavailable '}
           </Text>
           <Switch
+            aria-label='Toggle dish availability'
             size='lg'
             colorScheme='blue'
             isChecked={isAvailable}
